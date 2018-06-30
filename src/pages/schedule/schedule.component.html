@@ -1,3 +1,3 @@
-<p>
-  schedule works!
-</p>
+<div>
+  <schedule-item *ngFor="let item of scheduleList" [schedule]="item" [key]="item.id"></schedule-item>
+</div>
