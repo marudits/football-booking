@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-// utils
+// Interface
 import Schedule from '../../utils/interface/schedule';
-import { SCHEDULE_LIST } from '../../utils/data/schedule';
+
+// Service
+import { SharedData } from '../../utils/service/shared-data';
 
 @Component({
   selector: 'app-booking',
@@ -16,14 +18,18 @@ export class BookingComponent implements OnInit {
     name: "Marudi"
   }
 
-  constructor() { }
+  constructor(
+    private sharedData: SharedData
+  ) { }
 
   ngOnInit() {
     this.getBookingList();
   }
 
   getBookingList(){
-    this.bookingList = SCHEDULE_LIST.filter(x => x.name === this.user.name);
+    let schedule = this.sharedData.getData('schedule');
+    this.bookingList = schedule.filter(x => x.name === this.user.name);
+    console.log(this.bookingList);
   }
 
 }

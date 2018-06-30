@@ -1,0 +1,47 @@
+<div>
+  <h3>Order</h3>
+  <p>Book a Pitch</p>
+
+  <form materialize class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="schedule-date" name="schedule-date" materialize="pickadate" [materializeParams]="[{format: 'dd/mm/yyyy'}]" type="text" [(ngModel)]="form.date" />
+        <label for="schedule-date">Select Date</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <select materialize="material_select" id="schedule-time" name="schedule-time" [(ngModel)]="form.time">
+          <option value="-1" selected="" disabled="disabled">&#x02500;&nbsp;Choose time slot&nbsp;&#x02500;</option>
+          <option *ngFor="let slot of slotHours">{{slot.value}}</option>
+        </select>
+        <label for="schedule-time">Select Slot Hours</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <select materialize="material_select" id="schedule-place" name="schedule-place" [(ngModel)]="form.place">
+          <option value="-1" selected="" disabled="disabled">&#x02500;&nbsp;Choose a pitch&nbsp;&#x02500;</option>
+          <option *ngFor="let place of pitch">{{place.value}}</option>
+        </select>
+        <label for="schedule-place">Select Place</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <textarea id="schedule-description" name="schedule-description" class="materialize-textarea" [(ngModel)]="form.description"></textarea>
+        <label for="schedule-description">Description</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <button class="btn waves-effect waves-light grey lighten-1" type="reset" name="action">Reset
+          <i class="material-icons left">clear</i>
+        </button>
+        <button class="btn waves-effect waves-light" type="button" name="action" (click)="onSubmit()">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

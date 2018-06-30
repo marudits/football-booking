@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-// utils
+// Data
 import { SCHEDULE_LIST } from '../../utils/data/schedule';
+
+// Interface
 import Schedule from '../../utils/interface/schedule';
+
+// Service
+import { SharedData } from '../../utils/service/shared-data';
 
 @Component({
   selector: 'app-schedule',
@@ -13,14 +18,16 @@ export class ScheduleComponent implements OnInit {
 
   scheduleList: Schedule[];
 
-  constructor() { }
+  constructor(
+    private sharedData: SharedData
+  ) { }
 
   ngOnInit() {
     this.getScheduleList();
   }
 
   getScheduleList(){
-    this.scheduleList = SCHEDULE_LIST;
+    this.scheduleList = this.sharedData.getData('schedule');
   }
 
 }
