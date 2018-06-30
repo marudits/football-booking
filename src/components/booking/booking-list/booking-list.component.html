@@ -1,0 +1,11 @@
+<ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+  <li *ngFor="let item of booking">
+    <div class="collapsible-header">
+      <i class="material-icons">filter_drama</i>{{item.date}}, {{item.time.start}} - {{item.time.end}}
+    </div>
+    <div class="collapsible-body">
+      <h5>{{item.place}}</h5>
+      <span>{{item.description}}</span>
+    </div>
+  </li>
+</ul>

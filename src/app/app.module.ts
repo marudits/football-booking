@@ -15,7 +15,7 @@ import { BookingModule } from '../pages/booking/booking.module';
 import { AuthModule } from '../pages/auth/auth.module';
 
 // Routing
-import { AppRoutingModule } from '../utils/data/routing';
+import { AppRoutingModule } from '../utils/config/routing';
 
 @NgModule({
   declarations: [

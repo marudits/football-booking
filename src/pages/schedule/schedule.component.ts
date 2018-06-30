@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+// utils
+import { SCHEDULE_LIST } from '../../utils/data/schedule';
+import Schedule from '../../utils/interface/schedule';
+
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
@@ -7,40 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleComponent implements OnInit {
 
-  scheduleList = [
-    {
-      id: 1,
-      name: 'Marudi',
-      time: {
-        start: '07:00',
-        end: '08:00'
-      },
-      date: '20-07-2018',
-      place: 'Field Eco 1'
-    }, {
-      id: '2',
-      name: 'Tri',
-      time: {
-        start: '08:00',
-        end: '09:00'
-      },
-      date: '20-07-2018',
-      place: 'Field Eco 1'
-    }, {
-      id: '3',
-      name: 'Subakti',
-      time: {
-        start: '07:00',
-        end: '08:00'
-      },
-      date: '20-07-2018',
-      place: 'Field Premium 1'
-    }
-  ];
+  scheduleList: Schedule[];
 
   constructor() { }
 
   ngOnInit() {
+    this.getScheduleList();
+  }
+
+  getScheduleList(){
+    this.scheduleList = SCHEDULE_LIST;
   }
 
 }
